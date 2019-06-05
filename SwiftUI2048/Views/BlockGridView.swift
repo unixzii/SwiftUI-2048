@@ -33,11 +33,23 @@ fileprivate struct IdentifiableIndexedBlock : Identifiable {
     
 }
 
+extension AnyTransition {
+    
+    static func blockAppear(from: Edge) -> AnyTransition {
+        return .asymmetric(
+            insertion: AnyTransition.opacity
+                .combined(with: .move(edge: from)),
+            removal: .identity)
+    }
+    
+}
+
 struct BlockGridView : View {
     
     typealias SupportingMatrix = BlockMatrix<IdentifiedBlock>
     
     let matrix: Self.SupportingMatrix
+    let blockEnterEdge: Edge
     
     func createBlock(_ block: IdentifiedBlock?) -> some View {
         if let block = block {
@@ -64,6 +76,7 @@ struct BlockGridView : View {
                     .position(x: CGFloat(block.index.0) * (65 + 12) + 32.5 + 12,
                               y: CGFloat(block.index.1) * (65 + 12) + 32.5 + 12)
                     .zIndex(self.zIndex(block.item))
+                    .transition(.blockAppear(from: self.blockEnterEdge))
                     .animation(block.item == nil ? nil : .spring(mass: 1, stiffness: 400, damping: 56, initialVelocity: 0))
             }
         }
@@ -95,7 +108,7 @@ struct BlockGridView_Previews : PreviewProvider {
     }
     
     static var previews: some View {
-        BlockGridView(matrix: matrix)
+        BlockGridView(matrix: matrix, blockEnterEdge: .top)
             .previewLayout(.sizeThatFits)
     }
     

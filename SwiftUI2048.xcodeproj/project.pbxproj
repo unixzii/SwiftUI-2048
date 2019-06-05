@@ -20,6 +20,7 @@
 		FA633E3F22A7BDBB00DE6288 /* IdentifiedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3E22A7BDBB00DE6288 /* IdentifiedBlock.swift */; };
 		FA633E4622A800AB00DE6288 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA633E4522A800AB00DE6288 /* Screenshot.png */; };
 		FA633E4822A8019D00DE6288 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA633E4722A8019D00DE6288 /* LICENSE */; };
+		FA6F2B2122A81832009C2D3B /* FunctionalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		FA633E4222A7FFD000DE6288 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA633E4522A800AB00DE6288 /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot.png; sourceTree = "<group>"; };
 		FA633E4722A8019D00DE6288 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		FA633E1D22A77D1C00DE6288 /* SwiftUI2048 */ = {
 			isa = PBXGroup;
 			children = (
+				FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */,
 				FA633E3522A7926200DE6288 /* Models */,
 				FA633E3222A77D3400DE6288 /* Views */,
 				FA633E1E22A77D1C00DE6288 /* AppDelegate.swift */,
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA633E3F22A7BDBB00DE6288 /* IdentifiedBlock.swift in Sources */,
+				FA6F2B2122A81832009C2D3B /* FunctionalUtils.swift in Sources */,
 				FA633E3922A79AFA00DE6288 /* GameLogic.swift in Sources */,
 				FA633E3422A77D5700DE6288 /* BlockView.swift in Sources */,
 				FA633E3D22A79B3C00DE6288 /* BlockGridView.swift in Sources */,

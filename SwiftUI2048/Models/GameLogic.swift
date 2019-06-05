@@ -58,7 +58,7 @@ final class GameLogic : BindableObject {
                 rowSnapshot.append(nil)
             }
             
-            merge(blocks: &compactRow)
+            merge(blocks: &compactRow, reverse: direction == .down || direction == .right)
             
             var newRow = [IdentifiedBlock?]()
             compactRow.forEach { newRow.append($0) }
@@ -85,7 +85,11 @@ final class GameLogic : BindableObject {
         }
     }
     
-    fileprivate func merge(blocks: inout [IdentifiedBlock]) {
+    fileprivate func merge(blocks: inout [IdentifiedBlock], reverse: Bool) {
+        if reverse {
+            blocks = blocks.reversed()
+        }
+        
         blocks = blocks
             .map { (false, $0) }
             .reduce([(Bool, IdentifiedBlock)]()) { acc, item in
@@ -102,6 +106,10 @@ final class GameLogic : BindableObject {
                 }
             }
             .map { $0.1 }
+        
+        if reverse {
+            blocks = blocks.reversed()
+        }
     }
     
     @discardableResult fileprivate func generateNewBlocks() -> Bool {
