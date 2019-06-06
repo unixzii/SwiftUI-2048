@@ -77,6 +77,13 @@ struct GameView : View {
                         self.gestureStartLocation = .zero
                     }
                 }
+                
+                // After the scene is updated, reset the last gesture direction
+                // to make sure the animation is right when user starts a new
+                // game.
+                OperationQueue.main.addOperation {
+                    self.lastGestureDirection = .up
+                }
             }
         return drag
     }

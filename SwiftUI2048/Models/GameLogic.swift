@@ -23,7 +23,7 @@ final class GameLogic : BindableObject {
     
     let didChange = PassthroughSubject<GameLogic, Never>()
     
-    fileprivate var _blockMatrix = BlockMatrixType()
+    fileprivate var _blockMatrix: BlockMatrixType!
     var blockMatrix: BlockMatrixType {
         return _blockMatrix
     }
@@ -35,7 +35,14 @@ final class GameLogic : BindableObject {
     }
     
     init() {
+        newGame()
+    }
+    
+    func newGame() {
+        _blockMatrix = BlockMatrixType()
         generateNewBlocks()
+        
+        didChange.send(self)
     }
     
     func move(_ direction: Direction) {
