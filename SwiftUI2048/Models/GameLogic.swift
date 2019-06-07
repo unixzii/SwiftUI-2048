@@ -28,6 +28,8 @@ final class GameLogic : BindableObject {
         return _blockMatrix
     }
     
+    fileprivate(set) var lastGestureDirection: Direction = .up
+    
     fileprivate var _globalID = 0
     fileprivate var newGlobalID: Int {
         _globalID += 1
@@ -40,7 +42,14 @@ final class GameLogic : BindableObject {
     
     func newGame() {
         _blockMatrix = BlockMatrixType()
+        resetLastGestureDirection()
         generateNewBlocks()
+        
+        didChange.send(self)
+    }
+    
+    func resetLastGestureDirection() {
+        lastGestureDirection = .up
         
         didChange.send(self)
     }
@@ -49,6 +58,8 @@ final class GameLogic : BindableObject {
         defer {
             didChange.send(self)
         }
+        
+        lastGestureDirection = direction
         
         var moved = false
         

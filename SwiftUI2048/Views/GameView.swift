@@ -27,8 +27,7 @@ extension Edge {
 
 struct GameView : View {
     
-    @State var gestureStartLocation: CGPoint = .zero
-    @State var lastGestureDirection: GameLogic.Direction = .up
+    @State var ignoreGesture = false
     @EnvironmentObject var gameLogic: GameLogic
     
     fileprivate struct LayoutTraits {
@@ -51,30 +50,28 @@ struct GameView : View {
         let threshold: CGFloat = 44
         let drag = DragGesture()
             .onChanged { v in
-                guard self.gestureStartLocation != v.startLocation else { return }
+                guard !self.ignoreGesture else { return }
+                
+                guard abs(v.translation.width) > threshold ||
+                    abs(v.translation.height) > threshold else {
+                    return
+                }
                 
                 withTransaction(Transaction()) {
-                    self.gestureStartLocation = v.startLocation
+                    self.ignoreGesture = true
                     
                     if v.translation.width > threshold {
                         // Move right
                         self.gameLogic.move(.right)
-                        self.lastGestureDirection = .right
                     } else if v.translation.width < -threshold {
                         // Move left
                         self.gameLogic.move(.left)
-                        self.lastGestureDirection = .left
                     } else if v.translation.height > threshold {
                         // Move down
                         self.gameLogic.move(.down)
-                        self.lastGestureDirection = .down
                     } else if v.translation.height < -threshold {
                         // Move up
                         self.gameLogic.move(.up)
-                        self.lastGestureDirection = .up
-                    } else {
-                        // Direction cannot be deduced, reset gesture state.
-                        self.gestureStartLocation = .zero
                     }
                 }
                 
@@ -82,8 +79,11 @@ struct GameView : View {
                 // to make sure the animation is right when user starts a new
                 // game.
                 OperationQueue.main.addOperation {
-                    self.lastGestureDirection = .up
+                    self.gameLogic.resetLastGestureDirection()
                 }
+            }
+            .onEnded { _ in
+                self.ignoreGesture = false
             }
         return drag
     }
@@ -96,17 +96,17 @@ struct GameView : View {
                         .font(Font.system(size: 48).weight(.black))
                         .color(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                         .offset(layoutTraits.bannerOffset)
-                    
-                    ZStack(alignment: .top) {
+
+                    ZStack(alignment: .center) {
                         BlockGridView(matrix: self.gameLogic.blockMatrix,
-                                      blockEnterEdge: .from(self.lastGestureDirection))
-                            .gesture(self.gesture)
-                        }
-                        .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
+                                      blockEnterEdge: .from(self.gameLogic.lastGestureDirection))
                     }
                     .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
-                    .background(
-                        Rectangle().fill(Color(red:0.96, green:0.94, blue:0.90, opacity:1.00))
+                    .gesture(self.gesture)
+                }
+                .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
+                .background(
+                    Rectangle().fill(Color(red:0.96, green:0.94, blue:0.90, opacity:1.00))
                 )
             }
         }
