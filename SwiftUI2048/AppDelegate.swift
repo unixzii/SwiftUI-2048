@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var gameLogic: GameLogic!
     var window: UIWindow?
     
+#if targetEnvironment(UIKitForMac)
+    var akSupports: AppKitSupports?
+#endif
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         gameLogic = GameLogic()
@@ -25,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         window!.makeKeyAndVisible()
         
-        self.becomeFirstResponder()
+#if targetEnvironment(UIKitForMac)
+        initializeAppKitSupports()
+        setupKeyboardEvents()
+#endif
         
         return true
     }
@@ -53,6 +60,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return newChildren
         }
     }
+    
+    // MARK: - macOS-Specific Methods
+    
+#if targetEnvironment(UIKitForMac)
+    private func initializeAppKitSupports() {
+        akSupports = loadAppKitSupports()
+    }
+    
+    private func setupKeyboardEvents() {
+        akSupports?.monitorKeyDown({ e in
+            guard !e.repeat else {
+                return
+            }
+            
+            switch e.key {
+            case .down:
+                self.gameLogic.move(.down)
+                return
+            case .left:
+                self.gameLogic.move(.left)
+                return
+            case .right:
+                self.gameLogic.move(.right)
+                return
+            case .up:
+                self.gameLogic.move(.up)
+                return
+            }
+        })
+    }
+#endif
 
 }
 
