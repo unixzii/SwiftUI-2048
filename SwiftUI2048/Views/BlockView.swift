@@ -37,12 +37,21 @@ struct BlockView : View {
     
     fileprivate let number: Int?
     
-    init(number: Int) {
-        self.number = number
+    // This is required to make the Text element be a different
+    // instance every time the block is updated. Otherwise, the
+    // text will be incorrectly rendered.
+    //
+    // TODO: File a bug.
+    fileprivate let textId: String?
+    
+    init(block: IdentifiedBlock) {
+        self.number = block.number
+        self.textId = "\(block.id):\(block.number)"
     }
     
     fileprivate init() {
         self.number = nil
+        self.textId = ""
     }
     
     static func blank() -> Self {
@@ -82,14 +91,17 @@ struct BlockView : View {
     
     var body: some View {
         ZStack {
-            Rectangle().fill(colorPair.0)
-            
+            Rectangle()
+                .fill(colorPair.0)
+                .zIndex(1)
+
             Text(numberText)
                 .font(Font.system(size: fontSize).bold())
                 .color(colorPair.1)
-                .id(numberText)
-                .transition(AnyTransition.scale(scale: 0.5, anchor: .center).combined(with: .opacity))
-                .animation(.fluidSpring())
+                .id(textId!)
+                // ⚠️ Gotcha: `zIndex` is important for removal transition!!
+                .zIndex(1000)
+                .transition(AnyTransition.opacity.combined(with: .scale()))
         }
         .clipped()
         .cornerRadius(6)
@@ -105,7 +117,7 @@ struct BlockView_Previews : PreviewProvider {
     static var previews: some View {
         Group {
             ForEach((1...11).map { Int(pow(2, Double($0))) }) { i in
-                BlockView(number: i)
+                BlockView(block: IdentifiedBlock(id: 0, number: i))
                     .previewLayout(.sizeThatFits)
             }
             

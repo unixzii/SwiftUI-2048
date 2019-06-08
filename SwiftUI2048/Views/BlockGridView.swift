@@ -8,38 +8,61 @@
 
 import SwiftUI
 
-fileprivate struct IdentifiableIndexedBlock : Identifiable {
+struct AnchoredScale : ViewModifier {
     
-    typealias ID = String
-    typealias IdentifiedValue = IndexedBlock<IdentifiedBlock>
+    let scaleFactor: Length
+    let anchor: UnitPoint
     
-    static var uniqueBlankId = 0
-    
-    let indexedBlock: IndexedBlock<IdentifiedBlock>
-    
-    var id: Self.ID {
-        if let id = indexedBlock.item?.id {
-            return "\(id)"
-        }
-        
-        // TODO: (Refactor) Don't mix two types of block views.
-        IdentifiableIndexedBlock.uniqueBlankId += 1
-        return "Blank_\(IdentifiableIndexedBlock.uniqueBlankId)"
+    func body(content: Self.Content) -> some View {
+        content.scaleEffect(scaleFactor, anchor: anchor)
     }
     
-    var identifiedValue: Self.IdentifiedValue {
-        return indexedBlock
+}
+
+struct BlurEffect : ViewModifier {
+    
+    let blurRaduis: Length
+    
+    func body(content: Self.Content) -> some View {
+        content.blur(radius: blurRaduis)
+    }
+    
+}
+
+struct MergedViewModifier<M1, M2> : ViewModifier where M1: ViewModifier, M2: ViewModifier {
+    
+    let m1: M1
+    let m2: M2
+    
+    init(first: M1, second: M2) {
+        m1 = first
+        m2 = second
+    }
+    
+    func body(content: Self.Content) -> some View {
+        content.modifier(m1).modifier(m2)
     }
     
 }
 
 extension AnyTransition {
     
-    static func blockAppear(from: Edge) -> AnyTransition {
+    static func blockGenerated(from: Edge, position: CGPoint, `in`: CGRect) -> AnyTransition {
+        let anchor = UnitPoint(x: position.x / `in`.width, y: position.y / `in`.height)
+        
         return .asymmetric(
-            insertion: AnyTransition.opacity
-                .combined(with: .move(edge: from)),
-            removal: .identity)
+            insertion: AnyTransition.opacity.combined(with: .move(edge: from)),
+            removal: AnyTransition.opacity.combined(with: .modifier(
+                active: MergedViewModifier(
+                    first: AnchoredScale(scaleFactor: 0.8, anchor: anchor),
+                    second: BlurEffect(blurRaduis: 20)
+                ),
+                identity: MergedViewModifier(
+                    first: AnchoredScale(scaleFactor: 1, anchor: anchor),
+                    second: BlurEffect(blurRaduis: 0)
+                )
+            ))
+        )
     }
     
 }
@@ -51,11 +74,32 @@ struct BlockGridView : View {
     let matrix: Self.SupportingMatrix
     let blockEnterEdge: Edge
     
-    func createBlock(_ block: IdentifiedBlock?) -> some View {
+    func createBlock(_ block: IdentifiedBlock?,
+                     at index: IndexedBlock<IdentifiedBlock>.Index) -> some View {
+        let blockView: BlockView
         if let block = block {
-            return BlockView(number: block.number)
+            blockView = BlockView(block: block)
+        } else {
+            blockView = BlockView.blank()
         }
-        return BlockView.blank()
+        
+        // TODO: Still need refactor, these hard-coded values sucks!!
+        let blockSize: CGFloat = 65
+        let spacing: CGFloat = 12
+        
+        let position = CGPoint(
+            x: CGFloat(index.0) * (blockSize + spacing) + blockSize / 2 + spacing,
+            y: CGFloat(index.1) * (blockSize + spacing) + blockSize / 2 + spacing
+        )
+        
+        return blockView
+            .frame(width: 65, height: 65, alignment: .center)
+            .position(x: position.x, y: position.y)
+            .transition(.blockGenerated(
+                from: self.blockEnterEdge,
+                position: CGPoint(x: position.x, y: position.y),
+                in: CGRect(x: 0, y: 0, width: 320, height: 320)
+            ))
     }
     
     // FIXME: This is existed as a workaround for a Swift compiler bug.
@@ -68,17 +112,20 @@ struct BlockGridView : View {
     
     var body: some View {
         ZStack {
-            ForEach(
-                self.matrix.flatten.map { IdentifiableIndexedBlock(indexedBlock: $0) }
-            ) { block in
-                self.createBlock(block.item)
-                    .frame(width: 65, height: 65, alignment: .center)
-                    .position(x: CGFloat(block.index.0) * (65 + 12) + 32.5 + 12,
-                              y: CGFloat(block.index.1) * (65 + 12) + 32.5 + 12)
-                    .zIndex(self.zIndex(block.item))
-                    .transition(.blockAppear(from: self.blockEnterEdge))
-                    .animation(block.item == nil ? nil : .spring(mass: 1, stiffness: 400, damping: 56, initialVelocity: 0))
+            // Background grid blocks:
+            ForEach(0..<4) { x in
+                ForEach(0..<4) { y in
+                    self.createBlock(nil, at: (x, y))
+                }
             }
+            .zIndex(1)
+            
+            // Number blocks:
+            ForEach(self.matrix.flatten.identified(by: \.item.id)) {
+                self.createBlock($0.item, at: $0.index)
+            }
+            .zIndex(1000)
+            .animation(.fluidSpring(stiffness: 130, dampingFraction: 0.8))
         }
         .frame(width: 320, height: 320, alignment: .center)
         .background(

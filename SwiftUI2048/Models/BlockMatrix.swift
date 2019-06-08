@@ -16,10 +16,12 @@ protocol Block {
     
 }
 
-struct IndexedBlock<T> {
+struct IndexedBlock<T> where T: Block {
     
-    let index: (Int, Int)
-    let item: T?
+    typealias Index = BlockMatrix<T>.Index
+    
+    let index: Self.Index
+    let item: T
 
 }
 
@@ -54,7 +56,10 @@ struct BlockMatrix<T> : CustomDebugStringConvertible where T: Block {
     
     var flatten: [IndexedBlock<T>] {
         return self.matrix.enumerated().flatMap { (y: Int, element: [T?]) in
-            element.enumerated().map { (x: Int, element: T?) in
+            element.enumerated().compactMap { (x: Int, element: T?) in
+                guard let element = element else {
+                    return nil
+                }
                 return IndexedBlock(index: (x, y), item: element)
             }
         }
