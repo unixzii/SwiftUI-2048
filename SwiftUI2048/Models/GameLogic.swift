@@ -61,6 +61,15 @@ final class GameLogic : BindableObject {
         
         lastGestureDirection = direction
         
+        defer {
+            // After the scene is updated, reset the last gesture direction
+            // to make sure the animation is right when user starts a new
+            // game.
+            OperationQueue.main.addOperation {
+                self.resetLastGestureDirection()
+            }
+        }
+        
         var moved = false
         
         let axis = direction == .left || direction == .right

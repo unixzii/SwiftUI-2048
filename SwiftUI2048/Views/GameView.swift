@@ -46,6 +46,15 @@ struct GameView : View {
         )
     }
     
+    var gestureEnabled: Bool {
+        // Existed for future usage.
+#if targetEnvironment(UIKitForMac)
+        return false
+#else
+        return true
+#endif
+    }
+    
     var gesture: some Gesture {
         let threshold: CGFloat = 44
         let drag = DragGesture()
@@ -74,13 +83,6 @@ struct GameView : View {
                         self.gameLogic.move(.up)
                     }
                 }
-                
-                // After the scene is updated, reset the last gesture direction
-                // to make sure the animation is right when user starts a new
-                // game.
-                OperationQueue.main.addOperation {
-                    self.gameLogic.resetLastGestureDirection()
-                }
             }
             .onEnded { _ in
                 self.ignoreGesture = false
@@ -88,7 +90,7 @@ struct GameView : View {
         return drag
     }
     
-    var body: some View {
+    var content: some View {
         GeometryReader { proxy in
             bind(self.layoutTraits(for: proxy)) { layoutTraits in
                 ZStack(alignment: layoutTraits.containerAlignment) {
@@ -96,13 +98,12 @@ struct GameView : View {
                         .font(Font.system(size: 48).weight(.black))
                         .color(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                         .offset(layoutTraits.bannerOffset)
-
+                    
                     ZStack(alignment: .center) {
                         BlockGridView(matrix: self.gameLogic.blockMatrix,
                                       blockEnterEdge: .from(self.gameLogic.lastGestureDirection))
                     }
                     .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
-                    .gesture(self.gesture)
                 }
                 .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
                 .background(
@@ -111,6 +112,16 @@ struct GameView : View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    var body: some View {
+        Group {
+            if gestureEnabled {
+                content.gesture(gesture, including: .all)
+            } else {
+                content
+            }
+        }
     }
     
 }
