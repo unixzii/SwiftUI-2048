@@ -28,6 +28,18 @@
 		FA633E4822A8019D00DE6288 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA633E4722A8019D00DE6288 /* LICENSE */; };
 		FA6C7BA222AA15F400760D4F /* AppKitSupportsImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C7BA122AA15F400760D4F /* AppKitSupportsImpl.swift */; };
 		FA6F2B2122A81832009C2D3B /* FunctionalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */; };
+		FA8D0FFC22AD0E8E0056756D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D0FFB22AD0E8E0056756D /* AppDelegate.swift */; };
+		FA8D100022AD0E950056756D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D0FFF22AD0E950056756D /* Assets.xcassets */; };
+		FA8D100322AD0E950056756D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D100222AD0E950056756D /* Preview Assets.xcassets */; };
+		FA8D100622AD0E950056756D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D100422AD0E950056756D /* Main.storyboard */; };
+		FA8D100C22AD0F1F0056756D /* BlockMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3622A7928400DE6288 /* BlockMatrix.swift */; };
+		FA8D100D22AD0F1F0056756D /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3822A79AFA00DE6288 /* GameLogic.swift */; };
+		FA8D100E22AD0F1F0056756D /* IdentifiedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3E22A7BDBB00DE6288 /* IdentifiedBlock.swift */; };
+		FA8D100F22AD0F1F0056756D /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3322A77D5700DE6288 /* BlockView.swift */; };
+		FA8D101022AD0F1F0056756D /* BlockGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3C22A79B3C00DE6288 /* BlockGridView.swift */; };
+		FA8D101122AD0F1F0056756D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3A22A79B1200DE6288 /* GameView.swift */; };
+		FA8D101222AD0F3E0056756D /* FunctionalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */; };
+		FA8D101522AD137D0056756D /* GameMainHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D101322AD13230056756D /* GameMainHostingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +100,14 @@
 		FA6C7B9F22AA14E900760D4F /* AppKitSupports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitSupports.swift; sourceTree = "<group>"; };
 		FA6C7BA122AA15F400760D4F /* AppKitSupportsImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitSupportsImpl.swift; sourceTree = "<group>"; };
 		FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalUtils.swift; sourceTree = "<group>"; };
+		FA8D0FF922AD0E8E0056756D /* 2048(macOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048(macOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8D0FFB22AD0E8E0056756D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA8D0FFF22AD0E950056756D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA8D100222AD0E950056756D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA8D100522AD0E950056756D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA8D100722AD0E950056756D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8D100822AD0E950056756D /* SwiftUI2048_mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUI2048_mac.entitlements; sourceTree = "<group>"; };
+		FA8D101322AD13230056756D /* GameMainHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMainHostingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +127,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FA6C7B8822AA000200760D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8D0FF622AD0E8E0056756D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -139,6 +166,7 @@
 				FA633E4222A7FFD000DE6288 /* README.md */,
 				FA633E4522A800AB00DE6288 /* Screenshot.png */,
 				FA633E1D22A77D1C00DE6288 /* SwiftUI2048 */,
+				FA8D0FFA22AD0E8E0056756D /* SwiftUI2048-mac */,
 				FA6C7B8C22AA000200760D4F /* AppKitSupports */,
 				FA00BCAB22ACF78200400C82 /* AppKitSupportsShim */,
 				FA633E1C22A77D1C00DE6288 /* Products */,
@@ -152,6 +180,7 @@
 				FA633E1B22A77D1C00DE6288 /* 2048.app */,
 				FA6C7B8B22AA000200760D4F /* AppKitSupports.bundle */,
 				FA00BCAA22ACF78200400C82 /* AppKitSupports.framework */,
+				FA8D0FF922AD0E8E0056756D /* 2048(macOS).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +239,28 @@
 				FA6C7B8D22AA000200760D4F /* Info.plist */,
 			);
 			path = AppKitSupports;
+			sourceTree = "<group>";
+		};
+		FA8D0FFA22AD0E8E0056756D /* SwiftUI2048-mac */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D101322AD13230056756D /* GameMainHostingView.swift */,
+				FA8D0FFB22AD0E8E0056756D /* AppDelegate.swift */,
+				FA8D0FFF22AD0E950056756D /* Assets.xcassets */,
+				FA8D100422AD0E950056756D /* Main.storyboard */,
+				FA8D100722AD0E950056756D /* Info.plist */,
+				FA8D100822AD0E950056756D /* SwiftUI2048_mac.entitlements */,
+				FA8D100122AD0E950056756D /* Preview Content */,
+			);
+			path = "SwiftUI2048-mac";
+			sourceTree = "<group>";
+		};
+		FA8D100122AD0E950056756D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D100222AD0E950056756D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +331,23 @@
 			productReference = FA6C7B8B22AA000200760D4F /* AppKitSupports.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		FA8D0FF822AD0E8E0056756D /* 2048(macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8D100B22AD0E950056756D /* Build configuration list for PBXNativeTarget "2048(macOS)" */;
+			buildPhases = (
+				FA8D0FF522AD0E8E0056756D /* Sources */,
+				FA8D0FF622AD0E8E0056756D /* Frameworks */,
+				FA8D0FF722AD0E8E0056756D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "2048(macOS)";
+			productName = "SwiftUI2048-mac";
+			productReference = FA8D0FF922AD0E8E0056756D /* 2048(macOS).app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -300,6 +368,9 @@
 						CreatedOnToolsVersion = 11.0;
 						LastSwiftMigration = 1100;
 					};
+					FA8D0FF822AD0E8E0056756D = {
+						CreatedOnToolsVersion = 11.0;
+					};
 				};
 			};
 			buildConfigurationList = FA633E1622A77D1C00DE6288 /* Build configuration list for PBXProject "SwiftUI2048" */;
@@ -316,6 +387,7 @@
 			projectRoot = "";
 			targets = (
 				FA633E1A22A77D1C00DE6288 /* 2048 */,
+				FA8D0FF822AD0E8E0056756D /* 2048(macOS) */,
 				FA6C7B8A22AA000200760D4F /* AppKitSupports */,
 				FA00BCA922ACF78200400C82 /* AppKitSupportsShim */,
 			);
@@ -348,6 +420,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8D0FF722AD0E8E0056756D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8D100622AD0E950056756D /* Main.storyboard in Resources */,
+				FA8D100322AD0E950056756D /* Preview Assets.xcassets in Resources */,
+				FA8D100022AD0E950056756D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +469,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA8D0FF522AD0E8E0056756D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8D101522AD137D0056756D /* GameMainHostingView.swift in Sources */,
+				FA8D101222AD0F3E0056756D /* FunctionalUtils.swift in Sources */,
+				FA8D100C22AD0F1F0056756D /* BlockMatrix.swift in Sources */,
+				FA8D100D22AD0F1F0056756D /* GameLogic.swift in Sources */,
+				FA8D100E22AD0F1F0056756D /* IdentifiedBlock.swift in Sources */,
+				FA8D100F22AD0F1F0056756D /* BlockView.swift in Sources */,
+				FA8D101022AD0F1F0056756D /* BlockGridView.swift in Sources */,
+				FA8D101122AD0F1F0056756D /* GameView.swift in Sources */,
+				FA8D0FFC22AD0E8E0056756D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -411,6 +509,14 @@
 				FA633E2A22A77D1D00DE6288 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FA8D100422AD0E950056756D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8D100522AD0E950056756D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -681,6 +787,50 @@
 			};
 			name = Release;
 		};
+		FA8D100922AD0E950056756D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI2048-mac/SwiftUI2048_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048-mac/Preview\\ Content";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SwiftUI2048-mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cyandev.SwiftUI2048-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FA8D100A22AD0E950056756D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI2048-mac/SwiftUI2048_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048-mac/Preview\\ Content";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SwiftUI2048-mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cyandev.SwiftUI2048-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -716,6 +866,15 @@
 			buildConfigurations = (
 				FA6C7B8F22AA000200760D4F /* Debug */,
 				FA6C7B9022AA000200760D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8D100B22AD0E950056756D /* Build configuration list for PBXNativeTarget "2048(macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8D100922AD0E950056756D /* Debug */,
+				FA8D100A22AD0E950056756D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

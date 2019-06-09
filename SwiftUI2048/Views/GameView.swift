@@ -48,7 +48,7 @@ struct GameView : View {
     
     var gestureEnabled: Bool {
         // Existed for future usage.
-#if targetEnvironment(UIKitForMac)
+#if !os(iOS)
         return false
 #else
         return true
