@@ -9,6 +9,10 @@
 import UIKit
 import SwiftUI
 
+#if targetEnvironment(UIKitForMac)
+import AppKitSupports
+#endif
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -69,23 +73,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupKeyboardEvents() {
-        akSupports?.monitorKeyDown({ e in
-            guard !e.repeat else {
+        akSupports?.monitorKeyDown({ (`repeat`, keyCode) in
+            guard !`repeat` else {
                 return
             }
-            
-            switch e.key {
-            case .down:
+
+            switch keyCode {
+            case 125:
                 self.gameLogic.move(.down)
                 return
-            case .left:
+            case 123:
                 self.gameLogic.move(.left)
                 return
-            case .right:
+            case 124:
                 self.gameLogic.move(.right)
                 return
-            case .up:
+            case 126:
                 self.gameLogic.move(.up)
+                return
+            default:
                 return
             }
         })

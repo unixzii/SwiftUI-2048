@@ -8,24 +8,26 @@
 
 import Foundation
 
-struct KeyEvent {
+/*
+public struct KeyEvent {
     
-    enum Key {
+    public enum Key {
         case up
         case down
         case left
         case right
     }
     
-    let `repeat`: Bool
-    let key: Key
+    public let `repeat`: Bool
+    public let key: Key
     
 }
+*/
 
-typealias KeyEventListener = (KeyEvent) -> ()
+public typealias KeyEventListener = (Bool, UInt16) -> ()
 
 // The main interface that app side interacts with.
-protocol AppKitSupports : class {
+public protocol AppKitSupports : class {
     
     func monitorKeyDown(_ listener: @escaping KeyEventListener)
     
@@ -37,11 +39,11 @@ protocol AppKitSupports : class {
 //
 // We don't want to perform any symbol resolution (via `dlsym`), so this is
 // a must.
-class AppKitSupportsFacade : NSObject {
+public class AppKitSupportsFacade : NSObject {
     
-    override required init() {}
+    public override required init() {}
     
-    @objc func getImpl() -> UnsafeRawPointer {
+    @objc public func getImpl() -> UnsafeRawPointer {
         fatalError("Stub is called")
     }
     

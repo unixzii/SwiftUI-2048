@@ -8,6 +8,7 @@
 
 #if targetEnvironment(UIKitForMac)
 import Foundation
+import AppKitSupports
 
 func loadAppKitSupports() -> AppKitSupports? {
     guard let bundlePath = Bundle.main.path(forResource: "AppKitSupports", ofType: "bundle") else {
@@ -27,9 +28,9 @@ func loadAppKitSupports() -> AppKitSupports? {
         return nil
     }
     
-    let facade = facadeType.init()
+    let facade = facadeType.init() as AnyObject
     // But we can still reuse the selector.
-    let implPtr = facade.perform(#selector(AppKitSupportsFacade.getImpl))!.toOpaque()
+    let implPtr = facade.getImpl()
     
     // Note:
     // The Swift 5 is ABI-stable, so the app and bundle are not necessarily
