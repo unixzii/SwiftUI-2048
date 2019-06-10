@@ -14,6 +14,8 @@
 		FA00BCB722ACF79A00400C82 /* AppKitSupports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C7B9F22AA14E900760D4F /* AppKitSupports.swift */; };
 		FA132EFA22A94D9400BD9743 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA132EF922A94D9400BD9743 /* MainMenu.xib */; };
 		FA132F2022A980EE00BD9743 /* AppKitSupportsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA132F1E22A97FA200BD9743 /* AppKitSupportsLoader.swift */; };
+		FA3EC97622AE3F9000D43738 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */; };
+		FA3EC97722AE402500D43738 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */; };
 		FA633E1F22A77D1C00DE6288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E1E22A77D1C00DE6288 /* AppDelegate.swift */; };
 		FA633E2522A77D1D00DE6288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA633E2422A77D1D00DE6288 /* Assets.xcassets */; };
 		FA633E2822A77D1D00DE6288 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA633E2722A77D1D00DE6288 /* Preview Assets.xcassets */; };
@@ -80,6 +82,7 @@
 		FA132EF922A94D9400BD9743 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		FA132EFC22A95F9100BD9743 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA132F1E22A97FA200BD9743 /* AppKitSupportsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitSupportsLoader.swift; sourceTree = "<group>"; };
+		FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIExtensions.swift; sourceTree = "<group>"; };
 		FA633E1B22A77D1C00DE6288 /* 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA633E1E22A77D1C00DE6288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA633E2422A77D1D00DE6288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 			children = (
 				FA132EF822A90EFD00BD9743 /* SwiftUI2048.entitlements */,
 				FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */,
+				FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */,
 				FA633E3522A7926200DE6288 /* Models */,
 				FA633E3222A77D3400DE6288 /* Views */,
 				FA633E1E22A77D1C00DE6288 /* AppDelegate.swift */,
@@ -453,6 +457,7 @@
 				FA6F2B2122A81832009C2D3B /* FunctionalUtils.swift in Sources */,
 				FA633E3922A79AFA00DE6288 /* GameLogic.swift in Sources */,
 				FA633E3422A77D5700DE6288 /* BlockView.swift in Sources */,
+				FA3EC97622AE3F9000D43738 /* SwiftUIExtensions.swift in Sources */,
 				FA633E3D22A79B3C00DE6288 /* BlockGridView.swift in Sources */,
 				FA633E1F22A77D1C00DE6288 /* AppDelegate.swift in Sources */,
 				FA633E3722A7928500DE6288 /* BlockMatrix.swift in Sources */,
@@ -474,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA8D101522AD137D0056756D /* GameMainHostingView.swift in Sources */,
+				FA3EC97722AE402500D43738 /* SwiftUIExtensions.swift in Sources */,
 				FA8D101222AD0F3E0056756D /* FunctionalUtils.swift in Sources */,
 				FA8D100C22AD0F1F0056756D /* BlockMatrix.swift in Sources */,
 				FA8D100D22AD0F1F0056756D /* GameLogic.swift in Sources */,

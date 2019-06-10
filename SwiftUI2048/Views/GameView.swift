@@ -114,14 +114,13 @@ struct GameView : View {
         .edgesIgnoringSafeArea(.all)
     }
     
-    var body: some View {
-        Group {
-            if gestureEnabled {
-                content.gesture(gesture, including: .all)
-            } else {
-                content
-            }
+    var body: AnyView {
+        if gestureEnabled {
+            return content
+                .gesture(gesture, including: .all)
+                .eraseToAnyView()
         }
+        return content.eraseToAnyView()
     }
     
 }
