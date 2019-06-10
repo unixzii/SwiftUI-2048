@@ -111,7 +111,8 @@ struct BlockGridView : View {
     }
     
     var body: some View {
-        ZStack {
+        
+        let blockGrid = ZStack {
             // Background grid blocks:
             ForEach(0..<4) { x in
                 ForEach(0..<4) { y in
@@ -134,6 +135,10 @@ struct BlockGridView : View {
         )
         .clipped()
         .cornerRadius(6)
+        
+        // Render as an image
+        let drawnBlockGrid = blockGrid.drawingGroup()
+        return drawnBlockGrid
     }
     
 }
