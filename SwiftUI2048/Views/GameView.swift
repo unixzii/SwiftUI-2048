@@ -115,12 +115,10 @@ struct GameView : View {
     }
     
     var body: AnyView {
-        if gestureEnabled {
-            return content
-                .gesture(gesture, including: .all)
-                .eraseToAnyView()
-        }
-        return content.eraseToAnyView()
+        return gestureEnabled ? (
+            content
+                .gesture(gesture, including: .all)>*
+        ) : content>*
     }
     
 }

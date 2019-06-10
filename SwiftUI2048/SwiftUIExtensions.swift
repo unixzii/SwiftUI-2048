@@ -15,3 +15,8 @@ extension View {
     }
     
 }
+
+postfix operator >*
+postfix func >*<V>(lhs: V) -> AnyView where V: View {
+    return lhs.eraseToAnyView()
+}
