@@ -134,6 +134,7 @@ struct BlockGridView : View {
         )
         .clipped()
         .cornerRadius(6)
+        .drawingGroup(opaque: false, colorMode: .linear)
     }
     
 }
