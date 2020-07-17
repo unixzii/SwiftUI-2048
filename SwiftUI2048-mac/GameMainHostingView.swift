@@ -49,26 +49,30 @@ class GameMainHostingView: NSHostingView<GameViewWrapper> {
             return
         }
         
-        switch event.keyCode {
-        case 125:
-            self.gameLogic.move(.down)
-            return
-        case 123:
-            self.gameLogic.move(.left)
-            return
-        case 124:
-            self.gameLogic.move(.right)
-            return
-        case 126:
-            self.gameLogic.move(.up)
-            return
-        default:
-            return
+        withTransaction(Transaction(animation: .spring())) {
+            switch event.keyCode {
+            case 125:
+                self.gameLogic.move(.down)
+                return
+            case 123:
+                self.gameLogic.move(.left)
+                return
+            case 124:
+                self.gameLogic.move(.right)
+                return
+            case 126:
+                self.gameLogic.move(.up)
+                return
+            default:
+                return
+            }
         }
     }
     
     func newGame() {
-        gameLogic.newGame()
+        withTransaction(Transaction(animation: .spring())) {
+            gameLogic.newGame()
+        }
     }
     
 }

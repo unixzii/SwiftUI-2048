@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class GameLogic : BindableObject {
+final class GameLogic : ObservableObject {
     
     enum Direction {
         case left
@@ -21,14 +21,14 @@ final class GameLogic : BindableObject {
     
     typealias BlockMatrixType = BlockMatrix<IdentifiedBlock>
     
-    let didChange = PassthroughSubject<GameLogic, Never>()
+    let objectWillChange = PassthroughSubject<GameLogic, Never>()
     
     fileprivate var _blockMatrix: BlockMatrixType!
     var blockMatrix: BlockMatrixType {
         return _blockMatrix
     }
     
-    fileprivate(set) var lastGestureDirection: Direction = .up
+    @Published fileprivate(set) var lastGestureDirection: Direction = .up
     
     fileprivate var _globalID = 0
     fileprivate var newGlobalID: Int {
@@ -45,30 +45,19 @@ final class GameLogic : BindableObject {
         resetLastGestureDirection()
         generateNewBlocks()
         
-        didChange.send(self)
+        objectWillChange.send(self)
     }
     
     func resetLastGestureDirection() {
         lastGestureDirection = .up
-        
-        didChange.send(self)
     }
     
     func move(_ direction: Direction) {
         defer {
-            didChange.send(self)
+            objectWillChange.send(self)
         }
         
         lastGestureDirection = direction
-        
-        defer {
-            // After the scene is updated, reset the last gesture direction
-            // to make sure the animation is right when user starts a new
-            // game.
-            OperationQueue.main.addOperation {
-                self.resetLastGestureDirection()
-            }
-        }
         
         var moved = false
         
@@ -156,7 +145,7 @@ final class GameLogic : BindableObject {
         
         // Don't forget to sync data.
         defer {
-            didChange.send(self)
+            objectWillChange.send(self)
         }
         
         // Place the first block.

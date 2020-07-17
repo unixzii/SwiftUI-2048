@@ -9,19 +9,11 @@
 import UIKit
 import SwiftUI
 
-#if targetEnvironment(UIKitForMac)
-import AppKitSupports
-#endif
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var gameLogic: GameLogic!
     var window: UIWindow?
-    
-#if targetEnvironment(UIKitForMac)
-    var akSupports: AppKitSupports?
-#endif
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -33,11 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         window!.makeKeyAndVisible()
         
-#if targetEnvironment(UIKitForMac)
-        initializeAppKitSupports()
-        setupKeyboardEvents()
-#endif
-        
         return true
     }
 
@@ -46,55 +33,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc func newGame(_ sender: AnyObject?) {
-        gameLogic.newGame()
+        withTransaction(Transaction(animation: .spring())) {
+            gameLogic.newGame()
+        }
     }
     
-    override func buildCommands(with builder: UICommandBuilder) {
+    override func buildMenu(with builder: UIMenuBuilder) {
         builder.remove(menu: .edit)
         builder.remove(menu: .format)
         builder.remove(menu: .view)
         
         builder.replaceChildren(ofMenu: .file) { oldChildren in
             var newChildren = oldChildren
-            let newGameItem = UIMutableKeyCommand(input: "N",
-                                                  modifierFlags: .command,
-                                                  action: #selector(newGame(_:)))
+            let newGameItem = UIKeyCommand(input: "N", modifierFlags: .command, action: #selector(newGame(_:)))
             newGameItem.title = "New Game"
             newChildren.insert(newGameItem, at: 0)
             return newChildren
         }
     }
     
-    // MARK: - macOS-Specific Methods
-    
-#if targetEnvironment(UIKitForMac)
-    private func initializeAppKitSupports() {
-        akSupports = loadAppKitSupports()
-    }
-    
-    private func setupKeyboardEvents() {
-        akSupports?.monitorKeyDown({ (`repeat`, keyCode) in
-            guard !`repeat` else {
-                return
-            }
-
-            switch keyCode {
-            case 125:
+#if targetEnvironment(macCatalyst)
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard let key = presses.first?.key else {
+            return
+        }
+        
+        withTransaction(Transaction(animation: .spring())) {
+            switch key.keyCode {
+            case .keyboardDownArrow:
                 self.gameLogic.move(.down)
                 return
-            case 123:
+            case .keyboardLeftArrow:
                 self.gameLogic.move(.left)
                 return
-            case 124:
+            case .keyboardRightArrow:
                 self.gameLogic.move(.right)
                 return
-            case 126:
+            case .keyboardUpArrow:
                 self.gameLogic.move(.up)
                 return
             default:
                 return
             }
-        })
+        }
     }
 #endif
 
