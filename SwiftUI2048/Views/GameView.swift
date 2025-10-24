@@ -103,7 +103,8 @@ struct GameView : View {
                     if layoutTraits.showsBanner {
                         Text("2048")
                             .font(Font.system(size: 48).weight(.black))
-                            .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
+                            .foregroundColor(.white)
+                            .shadow(color: Color(red:0.61, green:0.15, blue:0.69, opacity:0.5), radius: 10, x: 0, y: 0)
                             .offset(layoutTraits.bannerOffset)
                     }
                     
@@ -115,9 +116,15 @@ struct GameView : View {
                 }
                 .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
                 .background(
-                    Rectangle()
-                        .fill(Color(red:0.96, green:0.94, blue:0.90, opacity:1.00))
-                        .edgesIgnoringSafeArea(.all)
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color(red:0.10, green:0.12, blue:0.16, opacity:1.00),
+                            Color(red:0.15, green:0.17, blue:0.22, opacity:1.00)
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .edgesIgnoringSafeArea(.all)
                 )
             }
         }

@@ -10,29 +10,30 @@ import SwiftUI
 
 struct BlockView : View {
     
-    fileprivate let colorScheme: [(Color, Color)] = [
-        // 2
-        (Color(red:0.91, green:0.87, blue:0.83, opacity:1.00), Color(red:0.42, green:0.39, blue:0.35, opacity:1.00)),
-        // 4
-        (Color(red:0.90, green:0.86, blue:0.76, opacity:1.00), Color(red:0.42, green:0.39, blue:0.35, opacity:1.00)),
-        // 8
-        (Color(red:0.93, green:0.67, blue:0.46, opacity:1.00), Color.white),
-        // 16
-        (Color(red:0.94, green:0.57, blue:0.38, opacity:1.00), Color.white),
-        // 32
-        (Color(red:0.95, green:0.46, blue:0.33, opacity:1.00), Color.white),
-        // 64
-        (Color(red:0.94, green:0.35, blue:0.23, opacity:1.00), Color.white),
-        // 128
-        (Color(red:0.91, green:0.78, blue:0.43, opacity:1.00), Color.white),
-        // 256
-        (Color(red:0.91, green:0.78, blue:0.37, opacity:1.00), Color.white),
-        // 512
-        (Color(red:0.90, green:0.77, blue:0.31, opacity:1.00), Color.white),
-        // 1024
-        (Color(red:0.91, green:0.75, blue:0.24, opacity:1.00), Color.white),
-        // 2048
-        (Color(red:0.91, green:0.74, blue:0.18, opacity:1.00), Color.white),
+    // Vibrant gradient color scheme: (gradientStart, gradientEnd, textColor)
+    fileprivate let colorScheme: [(Color, Color, Color)] = [
+        // 2 - Soft Cyan Gradient
+        (Color(red:0.53, green:0.81, blue:0.92, opacity:1.00), Color(red:0.40, green:0.93, blue:0.93, opacity:1.00), Color.white),
+        // 4 - Purple to Pink Gradient
+        (Color(red:0.73, green:0.33, blue:0.83, opacity:1.00), Color(red:0.91, green:0.12, blue:0.39, opacity:1.00), Color.white),
+        // 8 - Orange to Red Gradient
+        (Color(red:1.00, green:0.60, blue:0.00, opacity:1.00), Color(red:0.90, green:0.22, blue:0.21, opacity:1.00), Color.white),
+        // 16 - Deep Orange to Coral Gradient
+        (Color(red:1.00, green:0.34, blue:0.13, opacity:1.00), Color(red:1.00, green:0.50, blue:0.38, opacity:1.00), Color.white),
+        // 32 - Red to Pink Gradient
+        (Color(red:0.96, green:0.26, blue:0.21, opacity:1.00), Color(red:0.91, green:0.30, blue:0.58, opacity:1.00), Color.white),
+        // 64 - Deep Red to Magenta Gradient
+        (Color(red:0.80, green:0.00, blue:0.00, opacity:1.00), Color(red:0.86, green:0.08, blue:0.24, opacity:1.00), Color.white),
+        // 128 - Bright Yellow to Gold Gradient
+        (Color(red:1.00, green:0.84, blue:0.00, opacity:1.00), Color(red:1.00, green:0.65, blue:0.00, opacity:1.00), Color.white),
+        // 256 - Gold to Amber Gradient
+        (Color(red:1.00, green:0.65, blue:0.00, opacity:1.00), Color(red:1.00, green:0.50, blue:0.00, opacity:1.00), Color.white),
+        // 512 - Lime to Green Gradient
+        (Color(red:0.50, green:0.98, blue:0.00, opacity:1.00), Color(red:0.00, green:0.80, blue:0.00, opacity:1.00), Color.white),
+        // 1024 - Blue to Indigo Gradient
+        (Color(red:0.13, green:0.59, blue:0.95, opacity:1.00), Color(red:0.25, green:0.32, blue:0.71, opacity:1.00), Color.white),
+        // 2048 - Royal Purple to Deep Purple Gradient (Victory!)
+        (Color(red:0.61, green:0.15, blue:0.69, opacity:1.00), Color(red:0.29, green:0.00, blue:0.51, opacity:1.00), Color.white),
     ]
     
     fileprivate let number: Int?
@@ -76,9 +77,12 @@ struct BlockView : View {
         }
     }
     
-    fileprivate var colorPair: (Color, Color) {
+    fileprivate var colorPair: (Color, Color, Color) {
         guard let number = number else {
-            return (Color(red:0.78, green:0.73, blue:0.68, opacity:1.00), Color.black)
+            // Blank tile - subtle gray gradient
+            return (Color(red:0.78, green:0.73, blue:0.68, opacity:1.00),
+                    Color(red:0.70, green:0.65, blue:0.60, opacity:1.00),
+                    Color.black)
         }
         let index = Int(log2(Double(number))) - 1
         if index < 0 || index >= colorScheme.count {
@@ -91,13 +95,17 @@ struct BlockView : View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(colorPair.0)
-                .zIndex(1)
+            // Vibrant gradient background
+            LinearGradient(
+                gradient: Gradient(colors: [colorPair.0, colorPair.1]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .zIndex(1)
 
             Text(numberText)
                 .font(Font.system(size: fontSize).bold())
-                .foregroundColor(colorPair.1)
+                .foregroundColor(colorPair.2)
                 .id(textId!)
                 // ⚠️ Gotcha: `zIndex` is important for removal transition!!
                 .zIndex(1000)

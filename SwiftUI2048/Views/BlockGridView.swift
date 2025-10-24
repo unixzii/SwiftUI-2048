@@ -129,8 +129,14 @@ struct BlockGridView : View {
         }
         .frame(width: 320, height: 320, alignment: .center)
         .background(
-            Rectangle()
-                .fill(Color(red:0.72, green:0.66, blue:0.63, opacity:1.00))
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(red:0.18, green:0.20, blue:0.25, opacity:1.00),
+                    Color(red:0.12, green:0.14, blue:0.18, opacity:1.00)
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         )
         .clipped()
         .cornerRadius(6)
