@@ -6,7 +6,11 @@
 //  Copyright © 2019 Cyandev. All rights reserved.
 //
 
+#if OpenSwiftUI
+import OpenSwiftUI
+#else
 import SwiftUI
+#endif
 
 struct AnchoredScale : ViewModifier {
     
@@ -134,7 +138,10 @@ struct BlockGridView : View {
         )
         .clipped()
         .cornerRadius(6)
+        #if !OpenSwiftUI
+        // FIXME: Not supported in OSUI yet.
         .drawingGroup(opaque: false, colorMode: .linear)
+        #endif
     }
     
 }

@@ -6,7 +6,11 @@
 //  Copyright © 2019 Cyandev. All rights reserved.
 //
 
+#if OpenSwiftUI
+import OpenSwiftUI
+#else
 import SwiftUI
+#endif
 
 struct GameViewWrapper : View {
     

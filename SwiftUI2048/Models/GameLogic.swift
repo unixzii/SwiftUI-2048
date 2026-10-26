@@ -7,7 +7,11 @@
 //
 
 import Foundation
+#if OpenSwiftUI
+import OpenSwiftUI
+#else
 import SwiftUI
+#endif
 import Combine
 
 final class GameLogic : ObservableObject {

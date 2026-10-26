@@ -3,10 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02400000000000000000001 /* OpenSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E02400000000000000000003 /* OpenSwiftUI */; };
+		E02400000000000000000002 /* OpenSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E02400000000000000000004 /* OpenSwiftUI */; };
+		E02401000000000000000008 /* IdentifiedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3E22A7BDBB00DE6288 /* IdentifiedBlock.swift */; };
+		E02401000000000000000009 /* FunctionalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */; };
+		E0240100000000000000000A /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3822A79AFA00DE6288 /* GameLogic.swift */; };
+		E0240100000000000000000B /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3322A77D5700DE6288 /* BlockView.swift */; };
+		E0240100000000000000000C /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */; };
+		E0240100000000000000000D /* BlockGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3C22A79B3C00DE6288 /* BlockGridView.swift */; };
+		E0240100000000000000000E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E1E22A77D1C00DE6288 /* AppDelegate.swift */; };
+		E0240100000000000000000F /* BlockMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3622A7928400DE6288 /* BlockMatrix.swift */; };
+		E02401000000000000000010 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3A22A79B1200DE6288 /* GameView.swift */; };
+		E02401000000000000000012 /* OpenSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E02401000000000000000006 /* OpenSwiftUI */; };
+		E02401000000000000000014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA633E2922A77D1D00DE6288 /* LaunchScreen.storyboard */; };
+		E02401000000000000000015 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA633E2722A77D1D00DE6288 /* Preview Assets.xcassets */; };
+		E02401000000000000000016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA633E2422A77D1D00DE6288 /* Assets.xcassets */; };
+		E02401000000000000000017 /* Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA633E4522A800AB00DE6288 /* Screenshot.png */; };
+		E02401000000000000000018 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA633E4722A8019D00DE6288 /* LICENSE */; };
+		E02401000000000000000019 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA132EF922A94D9400BD9743 /* MainMenu.xib */; };
+		E02401000000000000000022 /* GameMainHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D101322AD13230056756D /* GameMainHostingView.swift */; };
+		E02401000000000000000023 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */; };
+		E02401000000000000000024 /* FunctionalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F2B2022A81832009C2D3B /* FunctionalUtils.swift */; };
+		E02401000000000000000025 /* BlockMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3622A7928400DE6288 /* BlockMatrix.swift */; };
+		E02401000000000000000026 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3822A79AFA00DE6288 /* GameLogic.swift */; };
+		E02401000000000000000027 /* IdentifiedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3E22A7BDBB00DE6288 /* IdentifiedBlock.swift */; };
+		E02401000000000000000028 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3322A77D5700DE6288 /* BlockView.swift */; };
+		E02401000000000000000029 /* BlockGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3C22A79B3C00DE6288 /* BlockGridView.swift */; };
+		E0240100000000000000002A /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA633E3A22A79B1200DE6288 /* GameView.swift */; };
+		E0240100000000000000002B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D0FFB22AD0E8E0056756D /* AppDelegate.swift */; };
+		E0240100000000000000002D /* OpenSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E02401000000000000000020 /* OpenSwiftUI */; };
+		E0240100000000000000002F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D100422AD0E950056756D /* Main.storyboard */; };
+		E02401000000000000000030 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D100222AD0E950056756D /* Preview Assets.xcassets */; };
+		E02401000000000000000031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D0FFF22AD0E950056756D /* Assets.xcassets */; };
 		FA132EFA22A94D9400BD9743 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA132EF922A94D9400BD9743 /* MainMenu.xib */; };
 		FA3EC97622AE3F9000D43738 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */; };
 		FA3EC97722AE402500D43738 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC97522AE3F9000D43738 /* SwiftUIExtensions.swift */; };
@@ -38,6 +70,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E0240100000000000000001A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA00BCB622ACF78200400C82 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,6 +93,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E02401000000000000000002 /* 2048-OSUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048-OSUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0240100000000000000001C /* 2048-OSUI(Mac).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048-OSUI(Mac).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA132EF822A90EFD00BD9743 /* SwiftUI2048.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUI2048.entitlements; sourceTree = "<group>"; };
 		FA132EF922A94D9400BD9743 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		FA132EFC22A95F9100BD9743 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -82,10 +126,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E02401000000000000000011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E02401000000000000000012 /* OpenSwiftUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0240100000000000000002C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0240100000000000000002D /* OpenSwiftUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA633E1822A77D1C00DE6288 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02400000000000000000001 /* OpenSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02400000000000000000002 /* OpenSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +185,8 @@
 		FA633E1C22A77D1C00DE6288 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				E02401000000000000000002 /* 2048-OSUI.app */,
+				E0240100000000000000001C /* 2048-OSUI(Mac).app */,
 				FA633E1B22A77D1C00DE6288 /* 2048.app */,
 				FA8D0FF922AD0E8E0056756D /* 2048(macOS).app */,
 			);
@@ -200,6 +264,47 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E02401000000000000000001 /* 2048-OSUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E02401000000000000000003 /* Build configuration list for PBXNativeTarget "2048-OSUI" */;
+			buildPhases = (
+				E02401000000000000000007 /* Sources */,
+				E02401000000000000000011 /* Frameworks */,
+				E02401000000000000000013 /* Resources */,
+				E0240100000000000000001A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "2048-OSUI";
+			packageProductDependencies = (
+				E02401000000000000000006 /* OpenSwiftUI */,
+			);
+			productName = "2048-OSUI";
+			productReference = E02401000000000000000002 /* 2048-OSUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E0240100000000000000001B /* 2048-OSUI(Mac) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0240100000000000000001D /* Build configuration list for PBXNativeTarget "2048-OSUI(Mac)" */;
+			buildPhases = (
+				E02401000000000000000021 /* Sources */,
+				E0240100000000000000002C /* Frameworks */,
+				E0240100000000000000002E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "2048-OSUI(Mac)";
+			packageProductDependencies = (
+				E02401000000000000000020 /* OpenSwiftUI */,
+			);
+			productName = "2048-OSUI(Mac)";
+			productReference = E0240100000000000000001C /* 2048-OSUI(Mac).app */;
+			productType = "com.apple.product-type.application";
+		};
 		FA633E1A22A77D1C00DE6288 /* 2048 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA633E2F22A77D1D00DE6288 /* Build configuration list for PBXNativeTarget "2048" */;
@@ -214,6 +319,9 @@
 			dependencies = (
 			);
 			name = 2048;
+			packageProductDependencies = (
+				E02400000000000000000003 /* OpenSwiftUI */,
+			);
 			productName = SwiftUI2048;
 			productReference = FA633E1B22A77D1C00DE6288 /* 2048.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +339,9 @@
 			dependencies = (
 			);
 			name = "2048(macOS)";
+			packageProductDependencies = (
+				E02400000000000000000004 /* OpenSwiftUI */,
+			);
 			productName = "SwiftUI2048-mac";
 			productReference = FA8D0FF922AD0E8E0056756D /* 2048(macOS).app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +356,12 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Cyandev;
 				TargetAttributes = {
+					E02401000000000000000001 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					E0240100000000000000001B = {
+						CreatedOnToolsVersion = 11.0;
+					};
 					FA633E1A22A77D1C00DE6288 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -254,7 +371,7 @@
 				};
 			};
 			buildConfigurationList = FA633E1622A77D1C00DE6288 /* Build configuration list for PBXProject "SwiftUI2048" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -262,10 +379,15 @@
 				Base,
 			);
 			mainGroup = FA633E1222A77D1C00DE6288;
+			packageReferences = (
+				E02400000000000000000005 /* XCRemoteSwiftPackageReference "OpenSwiftUI-spm" */,
+			);
 			productRefGroup = FA633E1C22A77D1C00DE6288 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				E02401000000000000000001 /* 2048-OSUI */,
+				E0240100000000000000001B /* 2048-OSUI(Mac) */,
 				FA633E1A22A77D1C00DE6288 /* 2048 */,
 				FA8D0FF822AD0E8E0056756D /* 2048(macOS) */,
 			);
@@ -273,6 +395,29 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E02401000000000000000013 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E02401000000000000000014 /* LaunchScreen.storyboard in Resources */,
+				E02401000000000000000015 /* Preview Assets.xcassets in Resources */,
+				E02401000000000000000016 /* Assets.xcassets in Resources */,
+				E02401000000000000000017 /* Screenshot.png in Resources */,
+				E02401000000000000000018 /* LICENSE in Resources */,
+				E02401000000000000000019 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0240100000000000000002E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0240100000000000000002F /* Main.storyboard in Resources */,
+				E02401000000000000000030 /* Preview Assets.xcassets in Resources */,
+				E02401000000000000000031 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA633E1922A77D1C00DE6288 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +444,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E02401000000000000000007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E02401000000000000000008 /* IdentifiedBlock.swift in Sources */,
+				E02401000000000000000009 /* FunctionalUtils.swift in Sources */,
+				E0240100000000000000000A /* GameLogic.swift in Sources */,
+				E0240100000000000000000B /* BlockView.swift in Sources */,
+				E0240100000000000000000C /* SwiftUIExtensions.swift in Sources */,
+				E0240100000000000000000D /* BlockGridView.swift in Sources */,
+				E0240100000000000000000E /* AppDelegate.swift in Sources */,
+				E0240100000000000000000F /* BlockMatrix.swift in Sources */,
+				E02401000000000000000010 /* GameView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E02401000000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E02401000000000000000022 /* GameMainHostingView.swift in Sources */,
+				E02401000000000000000023 /* SwiftUIExtensions.swift in Sources */,
+				E02401000000000000000024 /* FunctionalUtils.swift in Sources */,
+				E02401000000000000000025 /* BlockMatrix.swift in Sources */,
+				E02401000000000000000026 /* GameLogic.swift in Sources */,
+				E02401000000000000000027 /* IdentifiedBlock.swift in Sources */,
+				E02401000000000000000028 /* BlockView.swift in Sources */,
+				E02401000000000000000029 /* BlockGridView.swift in Sources */,
+				E0240100000000000000002A /* GameView.swift in Sources */,
+				E0240100000000000000002B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA633E1722A77D1C00DE6288 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,6 +532,104 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E02401000000000000000004 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SwiftUI2048/SwiftUI2048.entitlements;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048/Preview\\ Content";
+				DEVELOPMENT_TEAM = VB7MJ8R223;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SwiftUI2048/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.OpenSwiftUIProject.SwiftUI2048;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) OpenSwiftUI";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Debug;
+		};
+		E02401000000000000000005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SwiftUI2048/SwiftUI2048.entitlements;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048/Preview\\ Content";
+				DEVELOPMENT_TEAM = VB7MJ8R223;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SwiftUI2048/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.OpenSwiftUIProject.SwiftUI2048;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) OpenSwiftUI";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Release;
+		};
+		E0240100000000000000001E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI2048-mac/SwiftUI2048_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048-mac/Preview\\ Content";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SwiftUI2048-mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.OpenSwiftUIProject.SwiftUI2048-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) OpenSwiftUI";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E0240100000000000000001F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI2048-mac/SwiftUI2048_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048-mac/Preview\\ Content";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SwiftUI2048-mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.OpenSwiftUIProject.SwiftUI2048-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) OpenSwiftUI";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		FA633E2D22A77D1D00DE6288 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -476,7 +752,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftUI2048/SwiftUI2048.entitlements;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048/Preview\\ Content";
-				DEVELOPMENT_TEAM = 9ZS3K56XF5;
+				DEVELOPMENT_TEAM = VB7MJ8R223;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUI2048/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -501,7 +777,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftUI2048/SwiftUI2048.entitlements;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "SwiftUI2048/Preview\\ Content";
-				DEVELOPMENT_TEAM = 9ZS3K56XF5;
+				DEVELOPMENT_TEAM = VB7MJ8R223;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUI2048/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -565,6 +841,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E02401000000000000000003 /* Build configuration list for PBXNativeTarget "2048-OSUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E02401000000000000000004 /* Debug */,
+				E02401000000000000000005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0240100000000000000001D /* Build configuration list for PBXNativeTarget "2048-OSUI(Mac)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0240100000000000000001E /* Debug */,
+				E0240100000000000000001F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FA633E1622A77D1C00DE6288 /* Build configuration list for PBXProject "SwiftUI2048" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -593,6 +887,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E02400000000000000000005 /* XCRemoteSwiftPackageReference "OpenSwiftUI-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.24.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E02400000000000000000003 /* OpenSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02400000000000000000005 /* XCRemoteSwiftPackageReference "OpenSwiftUI-spm" */;
+			productName = OpenSwiftUI;
+		};
+		E02400000000000000000004 /* OpenSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02400000000000000000005 /* XCRemoteSwiftPackageReference "OpenSwiftUI-spm" */;
+			productName = OpenSwiftUI;
+		};
+		E02401000000000000000006 /* OpenSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02400000000000000000005 /* XCRemoteSwiftPackageReference "OpenSwiftUI-spm" */;
+			productName = OpenSwiftUI;
+		};
+		E02401000000000000000020 /* OpenSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E02400000000000000000005 /* XCRemoteSwiftPackageReference "OpenSwiftUI-spm" */;
+			productName = OpenSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA633E1322A77D1C00DE6288 /* Project object */;
 }
